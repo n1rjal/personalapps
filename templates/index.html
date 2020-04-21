@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function formSubmit() {
+    document.forms["myForm"].submit();
+}
+</script>
+
+<style>
+
+*{
+    font-size: 20px;
+	padding:0px;
+    margin:0px;
+    color:white;
+    background-color: rgb(0, 0, 0);
+}
+form{
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    color:white;
+    padding: 1cm;
+    min-height:1cm;
+}
+
+form button{
+    
+    background-color: rgba(255, 255, 255, 0.23);
+    color:white;
+    padding:17px;
+    border:2px;
+    min-height:1cm;
+}
+
+
+form input{
+	padding:10px;
+    background-color: rgba(255, 251, 251, 0.225);
+    color:white;
+    min-height:1cm;
+}
+
+
+
+form input:hover{
+    background-color: rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
+    min-height:1cm;
+}
+
+table, td, th {
+    padding:0.3cml;
+    background-color: rgba(0, 0, 0, 0.225);
+    min-height:0.5cm;
+    border: 1px solid white;
+}
+
+table {
+  background-color: rgba(0, 0, 0, 0.225);
+  font-size: 25px;
+
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th ,td{
+  background-color: rgba(0, 0, 0, 0.225);
+    
+  line-height: 1cm !important;
+  font-size: 20px;
+  padding-left: 1cm;
+}
+</style>
+</head>
+<body>
+
+
+</head>
+<body>
+<form name="myForm" action="#" method="post">
+  <input type="text" id="fname" name="country" class=".text" placeholder="Enter a country">
+  <input type="button" onclick="formSubmit()" value="Send">
+  <p>
+  <i style="opacity:0.6">Created by Nirjal Paudel</i>
+  </p>
+</form>
+
+{%if not data%}
+<table>
+  <tr>
+    <th>CONTEXT</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>New Cases</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>New Deaths</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Total Cases</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Total Deaths</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Total Recovered</td>
+    <td></td>
+  </tr>
+</table>
+
+{%endif%}
+
+{%if data%}
+<table>
+  <tr>
+    <th>CONTEXT</th>
+    <th>{{data["CountryOther"]}}</th>
+  </tr>
+  <tr>
+    <td>New Cases</td>
+    <td>{{data["NewCases"]}}</td>
+  </tr>
+  <tr>
+    <td>New Deaths</td>
+    <td>{{data["NewDeaths"]}}</td>
+  </tr>
+  <tr>
+    <td>Total Cases</td>
+    <td>{{data["TotalCases"]}}</td>
+  </tr>
+  <tr>
+    <td>Total Deaths</td>
+    <td>{{data["TotalDeaths"]}}</td>
+  </tr>
+  <tr>
+    <td>Total Recovered</td>
+    <td>{{data["TotalRecovered"]}}</td>
+  </tr>
+</table>
+{%endif%}
+
+
+</body>
+</html>
